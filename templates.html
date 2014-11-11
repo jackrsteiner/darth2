@@ -1,5 +1,7 @@
 <template name="individual_ideas">
   <li>
+    <span class="score">Score:{{score}}</span>
+
     <button class="upvote">&plus;</button>
     <button class="downvote">&minus;</button>
     
@@ -7,6 +9,8 @@
   </li>
 </template>
 
+
+<!--unused -->
 <template name="task">
   <li class="{{#if checked}}checked{{/if}}">
     <button class="delete">&times;</button>
