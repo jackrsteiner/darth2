@@ -1,0 +1,18 @@
+<template name="individual_ideas">
+  <li>
+    <button class="upvote">&plus;</button>
+    <button class="downvote">&minus;</button>
+    
+    <span class="text">{{text}}</span>
+  </li>
+</template>
+
+<template name="task">
+  <li class="{{#if checked}}checked{{/if}}">
+    <button class="delete">&times;</button>
+
+    <input type="checkbox" checked="{{checked}}" class="toggle-checked" />
+
+    <span class="text">{{text}}</span>
+  </li>
+</template>

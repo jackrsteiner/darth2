@@ -1,0 +1,21 @@
+<!-- simple-todos.html -->
+<head>
+  <title>innoVader</title>
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <h1>Ideas List</h1>
+      <form class="new-idea">
+        <input type="text" name="text" placeholder="Type new ideas here" />
+      </form>
+    </header>
+
+    <ul>
+      {{#each ideasF}}
+        {{> individual_ideas}}
+      {{/each}}
+    </ul>
+  </div>
+</body>
