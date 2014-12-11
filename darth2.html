@@ -7,9 +7,12 @@
   <div class="container">
     <header>
       <h1>Ideas List</h1>
-      <form class="new-idea">
-        <input type="text" name="text" placeholder="Type new ideas here" />
-      </form>
+      {{> loginButtons}}
+      {{#if currentUser}}
+        <form class="new-idea">
+          <input type="text" name="text" placeholder="Type new ideas here" />
+        </form>
+        {{/if}}
     </header>
 
     <ul>

@@ -1,11 +1,16 @@
 <template name="individual_ideas">
   <li>
-    <span class="score">Score:{{score}}</span>
+    <span class="rank">
+      Rank:
+      <div>{{rank}}</div>
+    </span>
 
     <button class="upvote">&plus;</button>
+    <span class="score">({{upvote}})</span>
     <button class="downvote">&minus;</button>
-    
-    <span class="text">{{text}}</span>
+    <span class="title">{{title}}</span>
+    <button class="delete" value="Remove Idea">&times;</button>
+    <div class="text">{{text}}</div>
   </li>
 </template>
 

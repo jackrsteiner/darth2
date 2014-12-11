@@ -4,7 +4,7 @@ if (Meteor.isClient) {
   // This code only runs on the client
   Template.body.helpers({
     ideasF: function() {
-      return Ideas.find({},{sort: {createdAt: -1}});
+      return Ideas.find({},{sort: {upvote: -1}});
     }
   });
   
@@ -17,7 +17,9 @@ if (Meteor.isClient) {
       Ideas.insert({
         text: text,
         createdAt: new Date(), // current time
-        score: 1
+        upvote: 1,
+        downvote: 0,
+        author: Meteor.userId()
       });
 
       // Clear form
@@ -30,10 +32,15 @@ if (Meteor.isClient) {
 
   Template.individual_ideas.events({
   "click .upvote": function () {
-    Ideas.update(this._id, {$inc: {score: 1}});
+    Ideas.update(this._id, {$inc: {upvote: 1}});
   },
   "click .downvote": function () {
-    Ideas.update(this._id, {$inc: {score: -1}});
+    Ideas.update(this._id, {$inc: {downvote: -1}});
+  },
+  "click .delete": function () {
+    if (this.author == Meteor.userId()) {
+      Ideas.remove(this._id);
+    }
   }
 });
 }
